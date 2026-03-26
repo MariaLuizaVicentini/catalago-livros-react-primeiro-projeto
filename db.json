@@ -1,0 +1,18 @@
+{
+    "livros": [
+        {
+            "id" : 1, 
+            "titulo" : "A cabana", 
+            "paginas" : 240, 
+            "categoria" : "Romance",
+            "descricao" : "Um romance emocionante sobre fé e redeção"
+        },
+        {
+            "id" : 2, 
+            "titulo" : "O diario de Anne Frank", 
+            "paginas" : 283, 
+            "categoria" : "Biografia",
+            "descricao" : "O diario real de uma jovem judia durante a segunda guerra mundial"
+        }
+    ]
+}

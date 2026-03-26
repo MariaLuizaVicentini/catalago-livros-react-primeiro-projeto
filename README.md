@@ -75,8 +75,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 ---
 
----
+# como criar um servidor fake - simular back-end
 
+criar o arquivo db.json e aliemnte com os dados necessários
+
+```
+npm install -g json-server
+```
+
+---
 # Video aula:
 
 Link:

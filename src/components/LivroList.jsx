@@ -1,4 +1,23 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import api from "../services/api"
+
+
 export default function LivroList() {
+    // criando um estado chamado livros
+    const [ livros, setLivros ] = useState([]);
+
+    useEffect(() => {
+        carregarLivros();
+    }, [])
+
+    const carregarLivros = async () => {
+        const response = await api.get("/");
+        setLivros(response.data);
+    }
+
+
+
     return (
         <div className="container card p-0 mt-5">
             <div className="card-header">
@@ -16,13 +35,25 @@ export default function LivroList() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>O Senhor Dos Aneis</td>
-                            <td>1216</td>
-                            <td>Fantasia</td>
-                            <td>Uma epica aventura na Terra-media</td>
+                        { livros.map(livro => (
+                        <tr key={livro.id}>
+                            <td>{livro.id}</td>
+                            <td>{livro.titulo}</td>
+                            <td>{livro.paginas}</td>
+                            <td>{livro.categoria}</td>
+                            <td>{livro.descricao}</td>
+                            <td>
+                                <Link
+                                    className="btn btn-primary btn-sm"
+                                    to={`/editar/${livro.id}`}>Editar</Link>
+                            </td>
+                            <td>
+                                <Link
+                                    className="btn btn-danger btn-sm"
+                                    to={`/remove/${livro.id}`}>Excluir</Link>
+                            </td>
                         </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
