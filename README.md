@@ -14,12 +14,12 @@ O objetivo é servir como um template base para futuros projetos, consolidando c
 ----
 
 # Tecnologias utilizadas
-- React
-- Vite
-- Node.js (v20+)
-- Axios
-- React Router DOM
-- Bootstrap
+- React (lib para construir interfaces quebrando td em componente)
+- Vite (ferramenta de build que oferece inicialização rapida)
+- Node.js (v20+) (ambiente que permite o JS rodar no pc)
+- Axios (lib pra fazer request HTTP)
+- React Router DOM (gerenciamento de rotas)
+- Bootstrap (lib css)
 
 ---
 
