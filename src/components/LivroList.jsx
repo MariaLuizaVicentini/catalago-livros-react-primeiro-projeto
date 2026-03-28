@@ -5,7 +5,7 @@ import api from "../services/api"
 
 export default function LivroList() {
     // criando um estado chamado livros
-    const [ livros, setLivros ] = useState([]);
+    const [livros, setLivros] = useState([]);
 
     useEffect(() => {
         carregarLivros();
@@ -35,24 +35,25 @@ export default function LivroList() {
                         </tr>
                     </thead>
                     <tbody>
-                        { livros.map(livro => (
-                        <tr key={livro.id}>
-                            <td>{livro.id}</td>
-                            <td>{livro.titulo}</td>
-                            <td>{livro.paginas}</td>
-                            <td>{livro.categoria}</td>
-                            <td>{livro.descricao}</td>
-                            <td>
-                                <Link
-                                    className="btn btn-primary btn-sm"
-                                    to={`/editar/${livro.id}`}>Editar</Link>
-                            </td>
-                            <td>
-                                <Link
-                                    className="btn btn-danger btn-sm"
-                                    to={`/remove/${livro.id}`}>Excluir</Link>
-                            </td>
-                        </tr>
+                        {livros.map(livro => (
+                            <tr key={livro.id}>
+                                <td>{livro.id}</td>
+                                <td>{livro.titulo}</td>
+                                <td>{livro.paginas}</td>
+                                <td>{livro.categoria}</td>
+                                <td>{livro.descricao}</td>
+                                <td>
+                                    <Link
+                                        className="btn btn-primary btn-sm"
+                                        to={`/editar/${livro.id}`}>Editar</Link>
+                                </td>
+                                <td>
+                                    <button
+                                        className="btn btn-danger btn-sm ms-2"
+                                            >Excluir
+                                    </button>
+                                </td>
+                            </tr>
                         ))}
                     </tbody>
                 </table>

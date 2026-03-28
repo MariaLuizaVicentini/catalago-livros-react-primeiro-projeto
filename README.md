@@ -83,6 +83,12 @@ criar o arquivo db.json e aliemnte com os dados necessários
 npm install -g json-server
 ```
 
+como executar servidor:
+- em outro terminal, com o npm rodando
+Execute:
+```
+json-server --watch db.json --port 5000
+```
 ---
 # Video aula:
 
