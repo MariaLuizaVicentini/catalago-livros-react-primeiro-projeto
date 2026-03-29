@@ -4,7 +4,6 @@ import api from "../services/api"
 
 
 export default function LivroList() {
-    // criando um estado chamado livros
     const [livros, setLivros] = useState([]);
 
     useEffect(() => {
@@ -16,6 +15,10 @@ export default function LivroList() {
         setLivros(response.data);
     }
 
+    const excluir = async (id) => {
+        await api.delete(`/${id}`)
+        carregarLivros()
+    }
 
 
     return (
@@ -50,7 +53,8 @@ export default function LivroList() {
                                 <td>
                                     <button
                                         className="btn btn-danger btn-sm ms-2"
-                                            >Excluir
+                                        onClick={() => excluir(livro.id)}
+                                    >Excluir
                                     </button>
                                 </td>
                             </tr>

@@ -9,11 +9,29 @@ export default function LivroForm() {
     const [descricao, setDescricao] = useState("");
 
     const { id } = useParams();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (id) {
+            api.get(`/${id}`).then((resposta) => {
+                const livro = resposta.data;
+                setTitulo(livro.titulo);
+                setPaginas(livro.paginas);
+                setCategoria(livro.categoria);
+                setDescricao(livro.descricao);
+            })
+        }
+    }, [id]);
 
     const salvar = async (e) => {
         e.preventDefault();
-        console.log("Salvar Livro..")
+        const dados = { titulo, paginas, categoria, descricao };
+        if (id) {
+            await api.put(`/${id}`, dados);
+        } else {
+            await api.post("/", dados);
+        }
+        navigate("/");
     }
 
     return (
